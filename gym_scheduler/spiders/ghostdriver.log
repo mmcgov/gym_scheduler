@@ -1,0 +1,19 @@
+[INFO  - 2020-01-23T22:16:56.698Z] GhostDriver - Main - running on port 38451
+[INFO  - 2020-01-23T22:16:57.593Z] Session [11c592c0-3e2e-11ea-9b81-1b1e6babbb60] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-01-23T22:16:57.593Z] Session [11c592c0-3e2e-11ea-9b81-1b1e6babbb60] - page.customHeaders:  - {}
+[INFO  - 2020-01-23T22:16:57.593Z] Session [11c592c0-3e2e-11ea-9b81-1b1e6babbb60] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-01-23T22:16:57.594Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 11c592c0-3e2e-11ea-9b81-1b1e6babbb60
+[ERROR - 2020-01-23T22:17:00.923Z] Session [11c592c0-3e2e-11ea-9b81-1b1e6babbb60] - page.onError - msg: TypeError: undefined is not a function (evaluating '$.fn.snow()')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-01-23T22:17:00.924Z] Session [11c592c0-3e2e-11ea-9b81-1b1e6babbb60] - page.onError - stack:
+  (anonymous function) (https://myflye.flyefit.ie/login:245)
+  i (https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js:2)
+  fireWith (https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js:2)
+  ready (https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js:2)
+  J (https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-01-23T22:17:01.958Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1579817821926
+
+  phantomjs://platform/console++.js:263 in error
