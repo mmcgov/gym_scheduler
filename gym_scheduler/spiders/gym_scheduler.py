@@ -17,16 +17,12 @@ from datetime import date
 from scrapy.spiders import BaseSpider
 from scrapy.http import FormRequest
 from scrapy.utils.response import open_in_browser
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import pickle
 from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
 from scrapy.crawler import Crawler
 from scrapy.utils.log import configure_logging
-#from scrapy.utils.project import get_project_settings
+from scrapy.utils.project import get_project_settings
 import ssl
 from functools import wraps
 import pandas as pd
@@ -37,6 +33,10 @@ import logging
 import datetime
 import scrapy
 from scrapy.utils.response import open_in_browser
+import datetime
+from ast import literal_eval
+
+
 
 class gym_scheduler(scrapy.Spider):
 
@@ -57,8 +57,8 @@ class gym_scheduler(scrapy.Spider):
 
     def start_crawl(self, response):
         yield scrapy.Request('https://myflye.flyefit.ie/myflye/courses/1',callback=self.method)
-    
-    def package_1(self, response):
+       
+    def user_1(self, response):
         day = datetime.datetime.today().weekday()
         if day in [4,5,6]:
             for x in response.xpath('//*[@class="class_bookable"]').extract():
@@ -72,7 +72,7 @@ class gym_scheduler(scrapy.Spider):
                     spin_cl = f'https://myflye.flyefit.ie/myflye/course-book/{y}'
                     print(spin_cl)
                     yield scrapy.Request(spin_cl,callback=self.book)
-        if day in [2, 3]: 
+        if day in [2, 3]:
             for x in response.xpath('//*[@class="class_bookable"]').extract():
                 if ('SPIN') in x and ('12:00pm') in x:
                     y = x.split()[6].split('/')[-1][:-2]
@@ -85,7 +85,7 @@ class gym_scheduler(scrapy.Spider):
                     print(spin_cl)
                     yield scrapy.Request(spin_cl,callback=self.book)
 
-    def package_2(self, response):
+    def user_2(self, response):
         day = datetime.datetime.today().weekday()
         if day in [2, 3]:
             for x in response.xpath('//*[@class="class_bookable"]').extract():
@@ -103,12 +103,13 @@ class gym_scheduler(scrapy.Spider):
         return [scrapy.FormRequest.from_response(response)]
 
 configure_logging()
+#settings = get_project_settings()
 runner = CrawlerRunner()
 
 @defer.inlineCallbacks
 def crawl():
-    yield runner.crawl(gym_scheduler, email='user_1_email', password='user_1_password', package='user_gym_package')
-    yield runner.crawl(gym_scheduler, email='user_1_email', password='user_2_password', package='user_gym_package')
+    yield runner.crawl(gym_scheduler, email='user_1_email', password='user_1_pw', package='user_1')
+    yield runner.crawl(gym_scheduler, email='user_2_email', password='user_2_pw', package='user_2')
     reactor.stop()
 
 def main():
@@ -117,3 +118,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
