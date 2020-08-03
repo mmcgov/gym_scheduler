@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python3
 import scrapy
 from datetime import datetime
 from twisted.internet import reactor, defer
